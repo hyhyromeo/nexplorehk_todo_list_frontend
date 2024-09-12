@@ -1,0 +1,27 @@
+.todoTaskWrap {
+  padding: 1%;
+  background-color: rgb(210, 210, 210);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  width: 33%;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
+}
+.todoTaskTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .todoTaskWrap {
+    width: 85%;
+    min-height: 100px;
+    padding: 5%;
+  }
+}
