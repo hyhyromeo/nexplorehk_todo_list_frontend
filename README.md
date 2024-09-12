@@ -50,7 +50,7 @@ The application communicates with a backend API to perform CRUD operations on ta
     - Start the server:
 
       ```bash
-      $ npm run dev
+      $ npm run start
       ```
 
     - The server will start on http://localhost:3000.

@@ -20,6 +20,7 @@ function App() {
     fetchCompletedTasks();
   }, []);
 
+  //  Fetches all tasks with status "pending" from the server, and updates the state
   const fetchPendingTasks = () => {
     axios
       .get("http://localhost:8080/tasks/todoTasks")
@@ -31,6 +32,8 @@ function App() {
         console.log(error);
       });
   };
+
+  //  Fetches all tasks with status "inProgress" from the server, and updates the state
   const fetchInProgressTasks = () => {
     axios
       .get("http://localhost:8080/tasks/inProgressTasks")
@@ -43,6 +46,7 @@ function App() {
       });
   };
 
+  //  Fetches all tasks with status "completed" from the server, and updates the state
   const fetchCompletedTasks = () => {
     axios
       .get("http://localhost:8080/tasks/completedTasks")
@@ -55,14 +59,17 @@ function App() {
       });
   };
 
+  //  Sets isModalOpen state to true, which causes the Add Task modal to appear.
   const showModal = () => {
     setIsModalOpen(true);
   };
 
+  // Sets isModalOpen to false, which causes the Add Task modal to close.
   const handleCancel = () => {
     setIsModalOpen(false);
   };
 
+  // Handles the submission of the Add Task form.
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
     axios
@@ -81,12 +88,14 @@ function App() {
       });
   };
 
+  // Handles the failure of the Add Task form submission.
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
     errorInfo
   ) => {
     console.log("Failed:", errorInfo);
   };
 
+  // Updates the status of a task in the database.
   const updateTaskStatus = (
     id: number,
     newStatus: string,
@@ -109,6 +118,7 @@ function App() {
         console.log(`Error updating task ${id}:`, error);
       });
   };
+  //  Called when the edit task modal is finished. Refetches all tasks from the server and updates the component state.
   const onFinishEdit = () => {
     fetchCompletedTasks();
     fetchInProgressTasks();
